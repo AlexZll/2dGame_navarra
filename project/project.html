@@ -62,10 +62,10 @@
     <title></title>
     <style type="text/css">
         #div1{
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 80px;
             /*background-color: red;*/
-            border-radius: 25px;
+            /*border-radius: 25px;*/
             /*position: absolute;*/
             /*left: 10px;*/
             /*top: 30px;*/
@@ -91,29 +91,36 @@
 <body>
 <h1>lmx go go go</h1>
 <div class="bei">
-    <div id="div1" class="photo">
-     <img src="/Users/alex/HTML/lmx.jpeg">
+    <div id="div1" class="photo" style = "background-size: cover;">
     </div>
 </div>
-    
+   
+
+
+
+
 <script type="application/javascript">
     var div1=document.getElementById("div1")
     window.onload = function() {
     	var speed = 50;
         window.onkeydown = function (evt) {
             if (evt.keyCode == 38 &&  div1.offsetTop > 0) {
+                div1.style.backgroundImage = "url(lmx_back.jpg)"
                 div1.style.position = "absolute"
                 div1.style.top = div1.offsetTop-speed+"px"
             }
-            else if(evt.keyCode==40){
+            else if(evt.keyCode==40 && div1.offsetTop < 500){
+                    div1.style.backgroundImage = "url(lmx_front.jpg)"
                     div1.style.position="absolute"
                     div1.style.top = div1.offsetTop+speed+"px"
                 }
-            else if (evt.keyCode == 37) {
+            else if (evt.keyCode == 37 && div1.offsetLeft > 0) {
+                div1.style.backgroundImage = "url(lmx_left.jpg)"
                 div1.style.position = "absolute"
                 div1.style.left = div1.offsetLeft-speed+"px"
             }
-            else if (evt.keyCode == 39) {
+            else if (evt.keyCode == 39 && div1.offsetLeft < 500) {
+                div1.style.backgroundImage = "url(lmx_right.jpg)"
                 div1.style.position = "absolute"
                 div1.style.left = div1.offsetLeft+speed+"px"
 
