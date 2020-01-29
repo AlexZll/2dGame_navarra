@@ -1,0 +1,127 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>lmx go go go</title>
+</head>
+<body>
+	<div name = "mydiv";>	
+	</div>
+	<script type="text/javascript">
+			// /* 创建一个div */
+			// var div = document.createElement("div");
+			// /* 将div添加到网页中 */
+			//document.body.appendChild(div);
+			// /* 设置div的样式 */
+			// div.style.width = "100px";
+			// div.style.height = "100px";
+			// div.style.position = "absolute";
+			// div.style.top = "0";
+			// div.style.left = "0";
+			// /* 键盘按下事件 */
+
+
+			var div = document.getElementsByTagName('mydiv');
+			div.style.width = "100px";
+			div.style.height = "100px";
+			div.style.position = "absolute";
+			div.style.background = url("/Users/alex/HTML/lmx.jpeg");
+			div.style.top = "0";
+			div.style.left = "0";
+			document.onkeydown = function(e) {
+				/* 方块移动的速度，即每按一次方块移动的像素，值越大移动速度越快 */
+				var speed = 100;
+				switch(e.which){
+					// 上
+					case 38:
+					  div.style.top = parseInt(div.style.top) - speed + "px";
+					  break;
+					// 下
+					case 40:
+						div.style.top = parseInt(div.style.top) + speed + "px";
+						break;
+					// 左
+					case 37:
+						div.style.left = parseInt(div.style.left) - speed + "px";
+						break;
+					// 右
+					case 39:
+						div.style.left = parseInt(div.style.left) + speed + "px";
+						break;
+				}
+			}	
+		</script>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 50px;
+            height: 50px;
+            /*background-color: red;*/
+            border-radius: 25px;
+            /*position: absolute;*/
+            /*left: 10px;*/
+            /*top: 30px;*/
+            font-size: large;
+        }
+        .photo img{
+        	max-height: 50px;
+        	max-width: 50px;
+        }
+        .bei{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100px;
+            height: 50px;
+            background-image: url("");
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>lmx go go go</h1>
+<div class="bei">
+    <div id="div1" class="photo">
+     <img src="/Users/alex/HTML/lmx.jpeg">
+    </div>
+</div>
+    
+<script type="application/javascript">
+    var div1=document.getElementById("div1")
+    window.onload = function() {
+    	var speed = 50;
+        window.onkeydown = function (evt) {
+            if (evt.keyCode == 38 &&  div1.offsetTop > 0) {
+                div1.style.position = "absolute"
+                div1.style.top = div1.offsetTop-speed+"px"
+            }
+            else if(evt.keyCode==40){
+                    div1.style.position="absolute"
+                    div1.style.top = div1.offsetTop+speed+"px"
+                }
+            else if (evt.keyCode == 37) {
+                div1.style.position = "absolute"
+                div1.style.left = div1.offsetLeft-speed+"px"
+            }
+            else if (evt.keyCode == 39) {
+                div1.style.position = "absolute"
+                div1.style.left = div1.offsetLeft+speed+"px"
+
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>
