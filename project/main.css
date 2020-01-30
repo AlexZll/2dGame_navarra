@@ -1,0 +1,57 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    position: relative;
+}
+
+#map {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 1px solid #000;
+    font-size: 0;
+}
+
+span {
+    display: inline-block;
+    /*color of the border*/
+    border: 1px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+}
+
+span.blank {
+    margin: 0;
+}
+
+span.wall {
+    background: rgb(85, 84, 84);
+}
+
+span.light1 {
+    background: red;
+}
+
+span.p1 {
+    /* width: 57px !important;
+    height: 57px !important;
+    display: block;
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('lmx_front.jpg'); */
+    background: blue;
+}
