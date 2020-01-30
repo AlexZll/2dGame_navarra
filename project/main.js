@@ -1,4 +1,10 @@
 // Constants
+var WALL = 0;
+var BLANK = 9;
+var P1 = -1;
+var P2 = -2;
+var BROKEN = -99; // 99 for testing
+
 var speed = 57;
 var img_max_height = 57; // unit height
 var img_max_width = 57; // unit width
@@ -43,68 +49,68 @@ window.onload = function() {
             case 87: // w(up)
                 {
                     if ((tmp_p1[1] - 1) < 0 || (tmp_p1[1] - 1) >= map_vertical_count) {
-                        console.log("Out of range!<br>.")
+                        console.log("Out of range!")
                         break;
                     }
                     if (orimap[tmp_p1[1] - 1][tmp_p1[0]] > 0) {
-                        unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "blank";
-                        orimap[tmp_p1[1]][tmp_p1[0]] = 9;
-                        orimap[tmp_p1[1] - 1][tmp_p1[0]] = -1;
+                        unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "broken";
+                        orimap[tmp_p1[1]][tmp_p1[0]] = BROKEN;
+                        orimap[tmp_p1[1] - 1][tmp_p1[0]] = P1;
                         tmp_p1[1] = tmp_p1[1] - 1;
                         unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "p1";
                     } else {
-                        console.log("Invalid movement!<br>")
+                        console.log("Invalid movement!")
                     }
                     break;
                 }
             case 83: // s(down)
                 {
                     if ((tmp_p1[1] + 1) < 0 || (tmp_p1[1] + 1) >= map_vertical_count) {
-                        console.log("Out of range!<br>.")
+                        console.log("Out of range!")
                         break;
                     }
                     if (orimap[tmp_p1[1] + 1][tmp_p1[0]] > 0) {
-                        unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "blank";
-                        orimap[tmp_p1[1]][tmp_p1[0]] = 9;
-                        orimap[tmp_p1[1] + 1][tmp_p1[0]] = -1;
+                        unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "broken";
+                        orimap[tmp_p1[1]][tmp_p1[0]] = BROKEN;
+                        orimap[tmp_p1[1] + 1][tmp_p1[0]] = P1;
                         tmp_p1[1] = tmp_p1[1] + 1;
                         unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "p1";
                     } else {
-                        console.log("Invalid movement!<br>")
+                        console.log("Invalid movement!")
                     }
                     break;
                 }
             case 65: // a(left)
                 {
                     if ((tmp_p1[0] - 1) < 0 || (tmp_p1[0] - 1) >= map_horizontal_count) {
-                        console.log("Out of range!<br>.")
+                        console.log("Out of range!")
                         break;
                     }
                     if (orimap[tmp_p1[1]][tmp_p1[0] - 1] > 0) {
-                        unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "blank";
-                        orimap[tmp_p1[1]][tmp_p1[0]] = 9;
-                        orimap[tmp_p1[1]][tmp_p1[0] - 1] = -1;
+                        unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "broken";
+                        orimap[tmp_p1[1]][tmp_p1[0]] = BROKEN;
+                        orimap[tmp_p1[1]][tmp_p1[0] - 1] = P1;
                         tmp_p1[0] = tmp_p1[0] - 1;
                         unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "p1";
                     } else {
-                        console.log("Invalid movement!<br>")
+                        console.log("Invalid movement!")
                     }
                     break;
                 }
             case 68: // d(right)
                 {
                     if ((tmp_p1[0] + 1) < 0 || (tmp_p1[0] + 1) >= map_horizontal_count) {
-                        console.log("Out of range!<br>.")
+                        console.log("Out of range!")
                         break;
                     }
                     if (orimap[tmp_p1[1]][tmp_p1[0] + 1] > 0) {
-                        unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "blank";
-                        orimap[tmp_p1[1]][tmp_p1[0]] = 9;
-                        orimap[tmp_p1[1]][tmp_p1[0] + 1] = -1;
+                        unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "broken";
+                        orimap[tmp_p1[1]][tmp_p1[0]] = BROKEN;
+                        orimap[tmp_p1[1]][tmp_p1[0] + 1] = P1;
                         tmp_p1[0] = tmp_p1[0] + 1;
                         unit[tmp_p1[1] * 15 + tmp_p1[0]].className = "p1";
                     } else {
-                        console.log("Invalid movement!<br>")
+                        console.log("Invalid movement!")
                     }
                     break;
                 }
@@ -129,8 +135,10 @@ function initMap() {
             // console.log(15 * i + j);
             map_target.appendChild(newSpan);
             unit.push(newSpan);
-            if (orimap[i][j] == -1) {
+            if (orimap[i][j] == P1) {
                 newSpan.className = "p1";
+                tmp_p1[0] = j;
+                tmp_p1[1] = i;
                 // p1.push(newSpan);
             } else if (orimap[i][j] == 0) {
                 newSpan.className = "wall";

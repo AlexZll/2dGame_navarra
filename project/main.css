@@ -41,6 +41,14 @@ span.wall {
 }
 
 span.light1 {
+    background: rgb(251, 255, 0);
+}
+
+span.light2 {
+    background: rgb(255, 157, 0);
+}
+
+span.light3 {
     background: red;
 }
 
@@ -54,4 +62,12 @@ span.p1 {
     background-repeat: no-repeat;
     background-image: url('lmx_front.jpg'); */
     background: blue;
+}
+
+span.p2 {
+    background: rgb(0, 217, 255);
+}
+
+span.broken {
+    background: rgb(110, 6, 88);
 }
