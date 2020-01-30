@@ -54,6 +54,7 @@ window.onload = function() {
         switch (evt.keyCode) {
             case 87: // w(up)
                 {
+                    lmx.style.backgroundImage = "url(lmx_back.PNG)"
                     if ((tmp_p1[1] - 1) < 0 || (tmp_p1[1] - 1) >= map_vertical_count) {
                         console.log("Out of range!")
                         break;
@@ -97,6 +98,7 @@ window.onload = function() {
                 }
             case 83: // s(down)
                 {
+                    lmx.style.backgroundImage = "url(lmx_front.PNG)"
                     if ((tmp_p1[1] + 1) < 0 || (tmp_p1[1] + 1) >= map_vertical_count) {
                         console.log("Out of range!")
                         break;
@@ -142,6 +144,7 @@ window.onload = function() {
                 }
             case 65: // a(left)
                 {
+                    lmx.style.backgroundImage = "url(lmx_left.PNG)"
                     if ((tmp_p1[0] - 1) < 0 || (tmp_p1[0] - 1) >= map_horizontal_count) {
                         console.log("Out of range!")
                         break;
@@ -187,6 +190,7 @@ window.onload = function() {
                 }
             case 68: // d(right)
                 {
+                    lmx.style.backgroundImage = "url(lmx_right.PNG)"
                     if ((tmp_p1[0] + 1) < 0 || (tmp_p1[0] + 1) >= map_horizontal_count) {
                         console.log("Out of range!")
                         break;
@@ -232,6 +236,7 @@ window.onload = function() {
                 }
             case 73: // i(p2-up)
                 {
+                    wqh.style.backgroundImage = "url(wqh.PNG)"
                     if ((tmp_p2[1] - 1) < 0 || (tmp_p2[1] - 1) >= map_vertical_count) {
                         console.log("Out of range!")
                         break;
@@ -277,6 +282,7 @@ window.onload = function() {
                 }
             case 75: // k(p2-down)
                 {
+                    wqh.style.backgroundImage = "url(wqh.PNG)"
                     if ((tmp_p2[1] + 1) < 0 || (tmp_p2[1] + 1) >= map_vertical_count) {
                         console.log("Out of range!")
                         break;
@@ -322,6 +328,7 @@ window.onload = function() {
                 }
             case 74: // j(left)
                 {
+                    wqh.style.backgroundImage = "url(wqh_with_car.PNG)"
                     if ((tmp_p2[0] - 1) < 0 || (tmp_p2[0] - 1) >= map_horizontal_count) {
                         console.log("Out of range!")
                         break;
@@ -367,6 +374,7 @@ window.onload = function() {
                 }
             case 76: // l(right)
                 {
+                    wqh.style.backgroundImage = "url(wqh_with_car.PNG)"
                     if ((tmp_p2[0] + 1) < 0 || (tmp_p2[0] + 1) >= map_horizontal_count) {
                         console.log("Out of range!")
                         break;
