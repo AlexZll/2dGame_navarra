@@ -1,97 +1,59 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-	<title>lmx go go go</title>
-</head>
-<body>
-	<div name = "mydiv";>	
-	</div>
-	<script type="text/javascript">
-			// /* 创建一个div */
-			// var div = document.createElement("div");
-			// /* 将div添加到网页中 */
-			//document.body.appendChild(div);
-			// /* 设置div的样式 */
-			// div.style.width = "100px";
-			// div.style.height = "100px";
-			// div.style.position = "absolute";
-			// div.style.top = "0";
-			// div.style.left = "0";
-			// /* 键盘按下事件 */
-
-
-			var div = document.getElementsByTagName('mydiv');
-			div.style.width = "100px";
-			div.style.height = "100px";
-			div.style.position = "absolute";
-			div.style.background = url("/Users/alex/HTML/lmx.jpeg");
-			div.style.top = "0";
-			div.style.left = "0";
-			document.onkeydown = function(e) {
-				/* 方块移动的速度，即每按一次方块移动的像素，值越大移动速度越快 */
-				var speed = 100;
-				switch(e.which){
-					// 上
-					case 38:
-					  div.style.top = parseInt(div.style.top) - speed + "px";
-					  break;
-					// 下
-					case 40:
-						div.style.top = parseInt(div.style.top) + speed + "px";
-						break;
-					// 左
-					case 37:
-						div.style.left = parseInt(div.style.left) - speed + "px";
-						break;
-					// 右
-					case 39:
-						div.style.left = parseInt(div.style.left) + speed + "px";
-						break;
-				}
-			}	
-		</script>
-
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>lmx go go go</title>
     <style type="text/css">
         #div1{
-            width: 60px;
-            height: 80px;
-            /*background-color: red;*/
+            width: 100px;
+            height: 100px;
+            /*background-color: #855600;*/
             /*border-radius: 25px;*/
             /*position: absolute;*/
             /*left: 10px;*/
             /*top: 30px;*/
             font-size: large;
         }
-        .photo img{
+       /* .photo img{
         	max-height: 50px;
         	max-width: 50px;
-        }
+        }*/
         .bei{
+            background-color: #855600;
             position: absolute;
             left: 0px;
             top: 0px;
-            width: 100px;
-            height: 50px;
+            width: 1600px;
+            height: 900px;
             background-image: url("");
         }
-        h1{
-            text-align: center;
+        #light2_2{
+            background-color: #FF0000;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            left: 100px;
         }
     </style>
 </head>
+
+
+
+
+
+
+
+
+
+
+
 <body>
 <h1>lmx go go go</h1>
 <div class="bei">
-    <div id="div1" class="photo" style = "background-size: cover;">
+    <div id="div1" style = "background-size: cover;">
+    </div>
+    <div id= "light2_2" style = "background-size: cover;">
     </div>
 </div>
    
@@ -99,33 +61,55 @@
 
 
 
-<script type="application/javascript">
-    var div1=document.getElementById("div1")
+
+<script type="text/javascript">
+    var div1=document.getElementById("div1");
+    var div_l1 = document.getElementById("light2_2")
+    var light_array = new Array(9);
+    for (var i = 8; i >= 0; i--) {
+        light_array[i] = new Array(16);
+    }
+    var position = [1,1]
+
+
+    light_array[1][1] = 0;
+
+
+
     window.onload = function() {
-    	var speed = 50;
+    	var speed = 100;
         window.onkeydown = function (evt) {
             if (evt.keyCode == 38 &&  div1.offsetTop > 0) {
                 div1.style.backgroundImage = "url(lmx_back.jpg)"
                 div1.style.position = "absolute"
                 div1.style.top = div1.offsetTop-speed+"px"
+                position[0] = position[0] - 1;
             }
-            else if(evt.keyCode==40 && div1.offsetTop < 500){
+            else if(evt.keyCode==40 && div1.offsetTop < 750){
                     div1.style.backgroundImage = "url(lmx_front.jpg)"
                     div1.style.position="absolute"
                     div1.style.top = div1.offsetTop+speed+"px"
+                    position[0] = position[0] + 1;
                 }
             else if (evt.keyCode == 37 && div1.offsetLeft > 0) {
                 div1.style.backgroundImage = "url(lmx_left.jpg)"
                 div1.style.position = "absolute"
                 div1.style.left = div1.offsetLeft-speed+"px"
+                position[1] = position[1] - 1;
             }
-            else if (evt.keyCode == 39 && div1.offsetLeft < 500) {
+            else if (evt.keyCode == 39 && div1.offsetLeft < 1450) {
                 div1.style.backgroundImage = "url(lmx_right.jpg)"
                 div1.style.position = "absolute"
                 div1.style.left = div1.offsetLeft+speed+"px"
-
-            }
+                position[1] = position[1] + 1;
+            } //主角移动
+            if (light_array[position[0]-1][position[1]-1] == 0){
+                div_l1.style.backgroundColor = "pink";
+           }
         }
+        
+           
+        
     }
 
 
