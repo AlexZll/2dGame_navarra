@@ -17,8 +17,8 @@ body {
 #lmx {
     width: 300px;
     height: 300px;
-    top: 100px;
-    left: 10px;
+    top: 15%;
+    left: 1%;
     background-image: url(lmx_front.PNG);
     display: block;
     position: absolute;
@@ -27,11 +27,28 @@ body {
 #wqh {
     width: 300px;
     height: 300px;
-    top: 500px;
-    left: 10px;
+    top: 55%;
+    left: 1%;
     background-image: url(wqh.PNG);
     display: block;
     position: absolute;
+}
+
+#status {
+    margin: auto;
+    width: 30%;
+    height: 50px;
+    border: 3px solid #73AD21;
+    position: absolute;
+    /* top: 870px; */
+    top: 90%;
+    left: 34.4%;
+    /* vertical-align: middle; */
+    text-align: center;
+    display: table-cell;
+    font-size: 200%;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #map {
