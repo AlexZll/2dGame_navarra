@@ -17,6 +17,7 @@ var p1_init_X = 3;
 var p1_init_Y = 4;
 var layer = 1; // temp layer (for future construction!)
 var flag_win = 0; // 1 for winning!
+const STATUS = document.getElementById('status');
 
 // 0-wall, 9-blank, 1/2/3-light, (-1)-p1, (-2)-p2
 var orimap = [
@@ -418,6 +419,16 @@ window.onload = function() {
                     }
                     break;
                 }
+            case 55:
+                {
+                    for (var i = 0; i < nums.vNum; i++) {
+                        for (var j = 0; j < nums.hNum; j++) {
+                            orimap[i][j] = 0;
+                        }
+                    }
+                    flag_win = 1;
+                    break;
+                }
             default:
                 break;
         }
@@ -427,12 +438,16 @@ window.onload = function() {
                 if (orimap[i][j] != WALL && orimap[i][j] != BROKEN && !(i == tmp_p1[1] && j == tmp_p1[0] || i == tmp_p2[1] && j == tmp_p2[0])) flag_win = 0;
             }
         }
-        if (flag_win) console.log("Congratulations, You win!");
+        if (flag_win) {
+            console.log("Congratulations, You win!");
+            STATUS.innerHTML = "Status: Winning!";
+        }
     }
 }
 
 function initMap() {
     var map_target = document.getElementById("map");
+
     map_target.style.width = map.width + "px";
     map_target.style.height = map.height + "px";
     var newSpan = null;
