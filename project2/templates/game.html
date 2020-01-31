@@ -1,44 +1,38 @@
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <title>WQH & LMX</title>
-  <link rel="stylesheet" href="../static/style.css">
-  
- </head>
- <body>
-	<div id="bodybackground">
-		<div class="container">
-			<div class="gamezone">
-				<canvas id="canvas">
-				</canvas>
-				<script type="text/javascript" src="../script/falling.js"></script>
-			</div>
-			<div class="sidebar">
-				<h2>WQH & LMX</h2>
-				<h3>Score: <span>0</span></h3>
-				<p id="timer">time left:</p>
-				<script type="text/javascript">
-					var beginTime = new Date();
-                    var gameTime = 60;
-                    var remainTime;
-					function checkTime()
-                    {
-                    	var beginTime = new Date();
-						var gameTime = 60;
-						var remainTime;
-                        var nowTime = new Date();
-                        remainTime = gameTime-parseInt((nowTime.getTime()-beginTime.getTime())/1000);
-                        return remainTime;
-                    }
-                    document.getElementById('timer').innerHTML = setInterval(checkTime(),50)
 
-                    
-				</script>
-				<div class="corner">
-					<img src="../static/wqh_car1.jpg" style="size: 400px 600px;">
-				</div>
-			</div>
-		</div>
-	</div>
- </body>
+<head>
+    <meta charset="UTF-8">
+    <title>WQH & LMX</title>
+    <link rel="stylesheet" href="../static/style.css">
+
+</head>
+
+<body>
+    <div id="bodybackground">
+        <div class="container">
+            <div class="gamezone">
+                <canvas id="canvas">
+				</canvas>
+
+            </div>
+            <div class="sidebar">
+                <h2>WQH & LMX</h2>
+                <div class="scoreboard">
+                    <h3>Score:
+                        <sco id="sco">0</sco>
+                    </h3>
+                </div>
+
+                <p id="timer">time left:
+                    <timerrr id="timerrr">0</timerrr>></p>
+                <script type="text/javascript" src="../script/falling.js"></script>
+
+                <div class="corner">
+                    <img src="../static/wqh_car1.jpg" style="size: 400px 600px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
